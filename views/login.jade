@@ -1,0 +1,26 @@
+extends mainLayout
+
+block content
+  .row=message
+  .row
+    .large-6.columns.large-centered
+      .signin-panel
+        p.welcome='Prijava v AIDS'
+        form(action='/login',method='post')
+          .row.collapse
+            .small-2.columns
+              span.prefix
+                i.fi-torso-female
+            .small-10.columns
+              input(type='text',placeholder='Uporabniško ime',name='username')
+          .row.collapse
+            .small-2.columns
+              span.prefix
+                i.fi-lock
+             .small-10.columns
+               input(type='password',placeholder='Geslo',name='password')
+          input.button(type='submit', value='Prijava')                      
+                                  
+
+block title
+  title=title
