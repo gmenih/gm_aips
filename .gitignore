@@ -9,3 +9,5 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
+
+.build.atom.json
