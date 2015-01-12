@@ -10,7 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var flash = require('connect-flash');
 
-module.exports = function(app, passport){
+module.exports = function(app, passport) {
   app.set('views', path.join(__dirname, '/../views'));
   app.set('view engine', 'jade');
 
@@ -24,8 +24,13 @@ module.exports = function(app, passport){
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, '/../public')));
   // passport session
-  app.use(session({secret: 'bigbadw0lph', resave: true, saveUninitialized: true}));
+  app.use(session({
+    secret: 'bigbadw0lph',
+    resave: true,
+    saveUninitialized: true
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(flash());
+  app.locals.basedir = app.get('views');
 }

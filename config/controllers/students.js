@@ -1,6 +1,6 @@
 
 exports.home = function(req, res){
-  res.render('student/home');
+  res.render('student/home', {user: req.user});
 }
 
 exports.courses = function(req, res){

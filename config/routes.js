@@ -1,22 +1,25 @@
+var students = require('./controllers/students');
 var auth = require('./middleware/authentication');
 
-module.exports = function(app, passport){
+module.exports = function(app, passport) {
   /** GET **/
   // login
-  app.get('/login', function(req, res){
+  app.get('/login', function(req, res) {
     res.render('login', {
       title: 'Prijava v AIDS',
       message: req.flash('error')
     });
   });
   // index
-  app.get('/', auth.requiresLogin, function(req, res){
-    if(req.user.type == 'student')
-      res.render('studentHome', {user: req.user});
-    else if(req.user.type = 'professor')
-      res.render('professorHome')
-  })
+  app.get('/', auth.requiresLogin, function(req, res) {
+    if (req.user.type == 'student')
+      res.redirect('/student');
+    else if (req.user.type = 'professor')
+      res.send('working on it ;)');
+  });
 
+  app.get('/student', auth.requiresStudentLogin, students.home);
+  app.get('/student/courses', auth.requiresStudentLogin, students.courses);
 
   /** POST **/
   //login
