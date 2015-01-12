@@ -46,3 +46,35 @@ html,body
 {
   border: 1px green solid;
 }
+
+.mainMenu
+{
+  display: block;
+  background: #2571c9;
+  list-style: none;
+}
+.mainMenu:after
+{
+  clear:both;
+  display: block;
+  content: ' ';
+  line-height: 1px;
+}
+.mainMenu .menuItem
+{
+  float: left;
+}
+.mainMenu .menuItem a
+{
+  padding: 5px 14px;
+  color: #1b223d;
+  font-size: 20px;
+}
+.mainMenu .menuItem a:hover
+{
+  background: #8fa6be;
+}
+#logo
+{
+  font-size: 3em;
+}
