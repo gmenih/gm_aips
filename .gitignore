@@ -11,3 +11,5 @@ node_modules
 npm-debug.log
 
 .build.atom.json
+
+data
