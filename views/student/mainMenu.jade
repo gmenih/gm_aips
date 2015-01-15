@@ -1,9 +1,0 @@
-mixin menuItem(url, name)
-  li.menuItem
-    a(href=url)= name
-
-ul.mainMenu
-  +menuItem('/student', 'Domov')
-  +menuItem('/student/courses', 'Predmeti')
-  +menuItem('/student/exams', 'Izpiti')
-  +menuItem('/logout', 'Odjava')
