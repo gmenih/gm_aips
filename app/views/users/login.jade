@@ -1,0 +1,18 @@
+extends ../layout
+
+block title
+  title='Prijava'
+
+block content
+  .loginFrame
+    .frameRow
+      span.frameTitle='Prijava v AIPS'
+    form(action='/login', method='post')
+      .frameRow
+        i.icon.usernameIcon
+        input(type='text', name='username', placeholder='Uporabniško ime',required='true')
+      .frameRow
+        i.icon.passwordIcon
+        input(type='password', name='password', placeholder='Geslo',required='true')
+      .frameRow
+        input.loginButton(type='submit', value='Prijava')

@@ -1,0 +1,74 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body, html{
+  width: 100%;
+  height: 100%;
+}
+
+.pageHolder
+{
+  display: block;
+  width: 960px;
+  margin: 0 auto;
+  border: 1px red dashed;
+  height: 100%;
+}
+
+/* login page */
+.loginFrame
+{
+  font-family: 'Oxygen';
+  height: 360px;
+  width: 450px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 30%;
+  -webkit-transform: translateY(-50%);
+  background: #f6f6f6;
+  border: 1px #a4a4a4 solid;
+  padding: 0 20px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.55);
+}
+
+.frameRow
+{
+  text-align: center;
+  margin: 5px 0;
+}
+.frameRow .frameTitle
+{
+  padding: 7px;
+  font-size: 2em;
+  font-weight: 700;
+  display: block;
+}
+
+.frameRow input[type="text"], .frameRow input[type="password"]
+{
+  display: block;
+  font-family: Oxygen;
+  font-size: 1.5em;
+  width: 95%;
+  margin: 6px auto;
+  padding: 4px;
+  border: 2px #212121 solid;
+  outline: none;
+  border-radius: 3px;
+}
+.frameRow input[type="submit"]
+{
+  padding: 12px 23px;
+  font-family: Oxygen;
+  font-size: 1.3em;
+  background: #168aea;
+  border: 1px #064389 solid;
+  margin-top: 50px;
+}
+.frameRow input[type="submit"]:hover
+{
+  background: #236fc1;
+  color: #f6f6f6;
+}
