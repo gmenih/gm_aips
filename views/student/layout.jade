@@ -4,10 +4,10 @@ html
     meta(charset='utf-8')
     meta(name='viewport',content='width=device-width, initial-scale=1.0')
     block title
-    link(rel='stylesheet',href='stylesheets/foundation.css')
-    link(rel='stylesheet',href='stylesheets/foundation-icons.css')
-    link(rel='stylesheet',href='stylesheets/style.css')
-    script(src='javascripts/vendor/modernizr.js')
+    link(rel='stylesheet',href='/stylesheets/foundation.css')
+    link(rel='stylesheet',href='/stylesheets/foundation-icons.css')
+    link(rel='stylesheet',href='/stylesheets/style.css')
+    script(src='/javascripts/vendor/modernizr.js')
   body
     header.row
       .large-12.columns.large-centered
@@ -20,8 +20,8 @@ html
     .pageFrame
       block content
                         
-    script(src='javascripts/vendor/jquery.js')
-    script(src='javascripts/foundation.min.js')
+    script(src='/javascripts/vendor/jquery.js')
+    script(src='/javascripts/foundation.min.js')
     script.
       $(document).foundation();
                               

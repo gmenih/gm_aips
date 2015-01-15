@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var monk = require('monk');
+var monk = require('monk')('localhost:27017/aips_dev');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var flash = require('connect-flash');
+
 
 module.exports = function(app, passport) {
   app.set('views', path.join(__dirname, '/../views'));
@@ -33,4 +34,9 @@ module.exports = function(app, passport) {
   app.use(passport.session());
   app.use(flash());
   app.locals.basedir = app.get('views');
+  app.use(function(req, res, next){
+    req.db = monk;
+    next();
+  })
+
 }

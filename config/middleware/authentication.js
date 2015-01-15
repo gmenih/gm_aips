@@ -10,3 +10,10 @@ exports.requiresStudentLogin = function(req, res, next) {
     // if user not student redirect to index
   res.redirect('/');
 }
+exports.requiresEnrolledStudentLogin = function(req, res, next){
+  if(req.isAuthenticated())
+    if(req.user.type == 'student' && req.user.program)
+      return next();
+  req.flash('error', 'Za dostop do strani morate biti vpisan študent!');
+  res.redirect('/');
+}

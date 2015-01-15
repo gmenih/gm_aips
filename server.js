@@ -3,7 +3,7 @@ var passport = require('passport');
 
 var app = express();
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3325;
 
 require('./config/passport')(passport);
 require('./config/express')(app, passport);
@@ -13,7 +13,7 @@ app.listen(port);
 console.log('Express app started on port ' + port);
 
 /**
-* Expose
-*/
+ * Expose
+ */
 
 module.exports = app;

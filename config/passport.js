@@ -12,7 +12,7 @@ module.exports = function(passport) {
     console.log('deserializing user');
     db.get('users').findById(userId, function(err, user) {
       done(err, user);
-    })
+    });
   });
 
   passport.use(local);

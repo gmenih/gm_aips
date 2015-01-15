@@ -6,4 +6,7 @@ block content
   .row
     .large-12.columns.large-centered
       h1='Pozdravljen, ' + user.firstname + '!'
-      div='Tvoja obvestila:'
+      -if(!obvestila)
+        p='Trenutno ni obvestil.'
+      -else
+        p='Tvoja obvestila:'

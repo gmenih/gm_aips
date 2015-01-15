@@ -1,9 +1,9 @@
+mixin menuItem(url, name)
+  li.menuItem
+    a(href=url)= name
+
 ul.mainMenu
-  li.menuItem
-    a(href="/student")='Obvestila'
-  li.menuItem
-    a(href="/student/courses")='Predmeti'
-  li.menuItem
-    a(href="/student/exams")='Izpiti'
-  li.menuItem
-    a(href="/logout")='Odjava'
+  +menuItem('/student', 'Domov')
+  +menuItem('/student/courses', 'Predmeti')
+  +menuItem('/student/exams', 'Izpiti')
+  +menuItem('/logout', 'Odjava')

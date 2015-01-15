@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
   });
 
   app.get('/student', auth.requiresStudentLogin, students.home);
-  app.get('/student/courses', auth.requiresStudentLogin, students.courses);
+  app.get('/student/courses', auth.requiresEnrolledStudentLogin, students.courses);
 
   /** POST **/
   //login

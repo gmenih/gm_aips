@@ -10,7 +10,7 @@ module.exports = new LocalStrategy(function(username, password, done) {
     }).
     on('success', function(user) {
       if (!user)
-        done(null, false);
+        done(null, false, {message: 'Napačno uporabniško ime ali geslo!'});
       else {
         if (!bcrypt.compareSync(password, user.password))
           done(null, false, {
