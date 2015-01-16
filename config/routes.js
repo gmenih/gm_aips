@@ -4,8 +4,12 @@ var users = require('../app/controllers/users');
 
 module.exports = function(app, passport){
   app.get('/', auth.requiresLogin, function(req, res){
-    console.log(req.user);
-    res.render('home', {user: req.user});
+    if(req.user.type == 'student')
+      res.redirect('/student');
+    else if(req.user.type === 'professor')
+      res.redirect('/prof');
+    else
+      res.send('penis');
   });
 
   app.get('/login', users.showLogin);

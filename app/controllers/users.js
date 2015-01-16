@@ -23,13 +23,13 @@ exports.create = function(req, res){
 }
 
 exports.redirectOnLogin = function(req, res){
-  var redirectTo = req.session.redirectTo ? req.session.redirectTo : '/' + req.user.type;
+  var redirectTo = req.session.redirectTo ? req.session.redirectTo : '/';
   delete req.session.redirectTo;
   res.redirect(redirectTo);
 }
 
 exports.studentHome = function(req, res){
-  res.render('student/home', {user: req.use});
+  res.render('student/home', {user: req.user});
 }
 
 

@@ -3,4 +3,7 @@ extends ../layout
 block title = 'Študentova domača stran'
   
 block content
-  h1='Pozdravljen, ' + user.name + '!'
+  include mainMenu
+  h1.pageTitle='Tvoja obvestila'
+  .obvestilaList
+    |Obvestila

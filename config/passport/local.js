@@ -8,7 +8,7 @@ module.exports = new LocalStrategy(function(username, password, done) {
     where: {
       username: username
     },
-    select: 'name lastname username email hashed_password salt'
+    select: 'name lastname username email hashed_password salt type'
   };
   User.load(query, function(err, user) {
     if(!user)
