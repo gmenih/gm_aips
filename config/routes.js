@@ -1,6 +1,7 @@
 var auth = require('./auth');
 
 var users = require('../app/controllers/users');
+var referat = require('../app/controllers/referat');
 
 module.exports = function(app, passport){
   app.get('/', auth.requiresLogin, function(req, res){
@@ -20,6 +21,12 @@ module.exports = function(app, passport){
   }), users.redirectOnLogin);
 
   app.get('/student', auth.requiresStudentLogin, users.studentHome);
+
+
+
+
+  /** REFERAT **/
+  app.get('/referat', referat.showHome);
 
 
 

@@ -3,7 +3,10 @@ var crypto = require('crypto');
 
 var Schema = mongoose.Schema;
 
-// User schema
+/**
+ * User model
+ * @type {Schema}
+ */
 var UserSchema = new Schema({
   name: {
     type: String,
@@ -15,7 +18,9 @@ var UserSchema = new Schema({
   },
   email: {
     type: String,
-    default: ''
+    default: '',
+    required: true,
+    unique: true
   },
   username: {
     type: String,
@@ -79,7 +84,6 @@ UserSchema.methods = {
 
 UserSchema.statics = {
   load: function(options, cb) {
-    console.log('selecting user');
     options.select = options.select || 'name username';
     this.findOne(options.where)
       .select(options.select)
