@@ -3,7 +3,12 @@ extends ../layout
 block title = 'Študentova domača stran'
   
 block content
-  include mainMenu
+  nav
+    ul.mainMenu
+      li.menuItem
+        a(href='#')='Uporabniki'
+      li.menuItem
+        a(href='#')='Letniki'
   h1.pageTitle='Tvoja obvestila'
   .obvestilaList
     |Obvestila

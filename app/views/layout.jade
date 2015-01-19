@@ -4,7 +4,8 @@ html
     meta(charset='utf-8')
     block title
     link(rel='stylesheet',href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300',type='text/css')
-    link(rel='stylesheet',href='css/main.css',type='text/css')
+    link(rel='stylesheet', href='/css/normalize.css',type='text/css')
+    link(rel='stylesheet', href='/css/foundation.css',type='text/css')
+    link(rel='stylesheet',href='/css/main.css',type='text/css')
   body
-    .pageHolder
-      block content
+    block content

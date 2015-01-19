@@ -27,6 +27,9 @@ module.exports = function(app, passport){
 
   /** REFERAT **/
   app.get('/referat', referat.showHome);
+  app.get('/referat/addUser', referat.showAddUser);
+  app.post('/referat/addUser', referat.addUser);
+  app.get('/referat/users', referat.showUsers);
 
 
 
@@ -57,7 +60,7 @@ module.exports = function(app, passport){
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: {}
+      error: err
     });
   });
 }

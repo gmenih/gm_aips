@@ -7,16 +7,25 @@ block content
   .addUserFrame
     .frameRow
       span.frameTitle='Dodajanje uporabnika'
-    form(action='/addUser', method='post')
-      .frameRow
-        input(type='text' name='name', placeholder='Ime', required='true')
-      .frameRow
-        input(type='text', name='lastName', placeholder='Priimek', required='true')
-      .frameRow
-        input(type='text', name='username', placeholder='Uporabniško ime',required='true')
-      .frameRow
-        input(type='password', name='password', placeholder='Geslo',required='true')
-      .frameRow
-        input(type='text', name='type', placeholder='Tip uporabnika', require='true')
-      .frameRow
-          input.loginButton(type='submit', value='Dodaj')
+    form(action='/referat/addUser', method='post')
+      .row
+        .large-8.large-centered.column
+          input(type='text' name='name', placeholder='Ime', required='true')
+      .row
+        .large-8.large-centered.column
+          input(type='text', name='lastname', placeholder='Priimek', required='true')
+      .row
+        .large-8.large-centered.column
+          input(type='text', name='username', placeholder='Uporabniško ime',required='true')
+      .row
+        .large-8.large-centered.column
+          input(type='email', name='email', placeholder='E-Mail')
+      .row
+        .large-8.large-centered.column
+          input(type='password', name='password', placeholder='Geslo',required='true')
+      .row
+        .large-8.large-centered.column
+          input(type='text', name='type', placeholder='Tip uporabnika', require='true')
+      .row
+        .small-3.small-centered.column
+          input.button(type='submit', value='Dodaj')

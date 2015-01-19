@@ -18,9 +18,7 @@ var UserSchema = new Schema({
   },
   email: {
     type: String,
-    default: '',
-    required: true,
-    unique: true
+    default: ''
   },
   username: {
     type: String,
@@ -88,6 +86,12 @@ UserSchema.statics = {
     this.findOne(options.where)
       .select(options.select)
       .exec(cb);
+  },
+  loadAll: function(select, cb){
+    select = select || "_id username"
+    this.find({})
+    .select(select)
+    .exec(cb);
   }
 }
 

@@ -3,12 +3,9 @@ extends ../layout
 block title = 'Referat'
 
 block content
-  nav
-    ul.mainMenu
-      li.menuItem
-        a(href='#')='Uporabniki'
-      li.menuItem
-        a(href='#')='Letniki'
-  h1.pageTitle='Tvoja obvestila'
-  .obvestilaList
-    |Obvestila
+  include mainMenu
+  .row
+    .large-12
+      h1.pageTitle='Tvoja obvestila'
+      .obvestilaList
+        |Obvestila

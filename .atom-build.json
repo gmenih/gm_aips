@@ -1,0 +1,6 @@
+{
+  "cmd" : "./node_modules/.bin/nodemon",
+  "args": ["./server.js"],
+  "sh": false,
+  "cwd": "{PROJECT_PATH}"
+}

@@ -1,0 +1,39 @@
+extends ../layout
+
+block title
+  title='Seznam vseh uporabnikov'
+
+
+block content
+  include mainMenu
+  .row
+    .large-12
+        h1='Seznam uporabnikov'
+  if info != ''
+    .row
+      .large-12
+        .alert-box.info.radius(data-alert='')=info
+  .row
+    .large-3
+      a.small.radius.button(href='/referat/addUser')
+        |Dodaj uporabnika
+    .large-9
+  .row
+    .large-12
+      table.userList(width='100%')
+        tr
+          th='Uporabniško ime'
+          th='Ime'
+          th='Priimek'
+          th='Email'
+          th='Tip'
+          th='Uredi'
+        each user in data
+          tr.userItem
+            td=user.username
+            td=user.name
+            td=user.lastname
+            td=user.email
+            td=user.type
+            td
+              a.editIcon(href='/referat/editUser/'+user._id)='Edit'
