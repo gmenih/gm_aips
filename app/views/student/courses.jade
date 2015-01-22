@@ -1,0 +1,28 @@
+extends ../layout
+
+block title
+  title='Seznam vseh uporabnikov'
+  
+  
+block content
+  .row
+    .large-12
+        include mainMenu
+  .row
+    .large-12
+      h1='Ocene'
+  .row
+    .large-12
+      table(width='100%')
+        tr
+          th='Ime predmeta'
+          th='ECTS'
+          th='Ocena'
+        each item in data
+          tr
+            td=item.course.name
+            td=item.course.ECTS
+            if !item.grade
+              td='Neocenjeno.'
+            else
+              td=item.grade

@@ -3,8 +3,8 @@ var Schema = mongoose.Schema;
 var Course = mongoose.model('Course');
 
 var ProgramSchema = new Schema({
-  name: {type: String, required: true},
-  shortName: {type: String, unique: true, required: true},
+  name: {type: String},
+  shortname: {type: String},
   courses: [{type: Schema.Types.ObjectId, ref: 'Course'}]
 });
 
@@ -16,4 +16,11 @@ ProgramSchema.methods = {
   }
 }
 
+ProgramSchema.statics = {
+  loadAll: function(select, cb){
+    this.find({})
+    .select(select)
+    .exec(cb);
+  }
+}
 mongoose.model('Program', ProgramSchema);

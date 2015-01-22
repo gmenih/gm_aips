@@ -72,3 +72,12 @@ body, html{
   background: #236fc1;
   color: #f6f6f6;
 }
+
+.obvestilo
+{
+  background: #f6f6f6;
+  border: 1px #f6f6f6 solid;
+  border-radius: 2px;
+  padding: 6px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,.75);
+}

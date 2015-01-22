@@ -2,8 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CourseSchema = new Schema({
-  name: {type: String, required: true},
-  shortName: {type: String, required: true},
+  name: {type: String, default: ''},
+  shortName: {type: String, default: ''},
+  ECTS: {type: Number, default:0},
+  holder: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
 CourseSchema.statics = {
@@ -18,6 +20,12 @@ CourseSchema.statics = {
       console.log(course);
       return course._id;
     });
+  },
+  loadAll: function(options, callback){
+    this.find(options.where)
+    .select(options.selectselect)
+    .populate('holder')
+    .exec(callback)
   }
 }
 

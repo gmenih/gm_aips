@@ -21,6 +21,15 @@ module.exports = function(app, passport){
   }), users.redirectOnLogin);
 
   app.get('/student', auth.requiresStudentLogin, users.studentHome);
+  app.get('/student/courses', auth.requiresStudentLogin, users.studentCourses);
+  //app.get('/student/exams', auth.requiresStudentLogin, users.studentExams);
+  app.get('/logout', auth.requiresLogin, users.logout);
+
+  /** PROFESOR */
+  app.get('/prof', auth.requiresProfessorLogin, users.professorHome);
+  app.get('/prof/courses', auth.requiresProfessorLogin, users.professorCourses);
+  app.get('/prof/course/:courseId', auth.requiresProfessorLogin, users.professorCourse);
+  app.post('/prof/saveGrades', users.professorSaveGrades);
 
 
 
@@ -30,6 +39,12 @@ module.exports = function(app, passport){
   app.get('/referat/addUser', referat.showAddUser);
   app.post('/referat/addUser', referat.addUser);
   app.get('/referat/users', referat.showUsers);
+  app.get('/referat/programs', referat.showPrograms);
+  app.get('/referat/addProgram', referat.showAddProgram);
+  app.post('/referat/addProgram', referat.addProgram);
+  app.get('/referat/courses', referat.showCourses);
+  app.get('/referat/addCourse', referat.showAddCourse);
+  app.post('/referat/addCourse', referat.addCourse);
 
 
 

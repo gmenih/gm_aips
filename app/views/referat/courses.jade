@@ -1,0 +1,26 @@
+extends ../layout
+
+block title
+  title='Seznam vseh uporabnikov'
+  
+  
+block content
+  include mainMenu
+  .row
+    .large-12
+      h1='Seznam predmetov'
+  .row
+    .large-3.columns
+      a.small.button.rounded(href='/referat/addCourse')='Dodaj predmet'
+  .row
+    .large-12
+      table(width='100%')
+        tr
+          th='Ime predmeta'
+          th='ECTS'
+          th='Nosilec'
+        each course in courses
+          tr
+            td=course.name
+            td=course.ECTS
+            td=course.holder.name+' '+course.holder.lastname

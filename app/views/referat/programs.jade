@@ -1,0 +1,33 @@
+extends ../layout
+
+block title
+  title='Seznam vseh uporabnikov'
+  
+  
+block content
+  include mainMenu
+  .row
+    .large-12
+      h1='Seznam programov'
+  if info != ''
+    .row
+      .large-6.large-centered.column
+        .alert-box.info=info
+  .row
+    .large-3
+      a.small.radius.button(href='/referat/addProgram')
+        |Dodaj program
+    .large-9
+  .row
+    .large-12
+      table.userList(width='100%')
+        tr
+          th='Ime programa'
+          th='Število predmetov'
+          th='Akcije'
+        each program in programs
+          tr
+            td=program.name
+            td=program.courses.length
+            td
+              a(href='/referat/program/' + program._id + '/addCourse')='Dodaj predmet'

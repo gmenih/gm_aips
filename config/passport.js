@@ -10,7 +10,7 @@ module.exports = function(passport, config){
   });
 
   passport.deserializeUser(function(id, done){
-    var options = {where:{_id: id}, select: "username name lastname email type"};
+    var options = {where:{_id: id}, select: "username name lastname email type program"};
     User.load(options, function(err, user){
       done(err, user);
     })

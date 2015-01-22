@@ -1,0 +1,23 @@
+extends ../layout
+
+block title
+  title='Seznam predmetov'
+
+block content
+  .row
+    .large-12
+      include mainMenu
+  .row
+    .large-12
+      h1='Seznam vaših predmetov'
+  .row
+    .large-12
+      table(width='100%')
+        tr
+          th='Ime predmeta'
+          th='ECTS'
+        each course in courses
+          tr
+            td
+              a(href='/prof/course/'+course._id)=course.name
+            td=course.ECTS

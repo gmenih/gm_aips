@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  include mainMenu
+  .row
+    .large-12.column
+      h1='Dodajanje predmeta'
+  form(action='/referat/addCourse', method='post')
+    .row
+      .large-12.column
+        input(type='text', name='name', placeholder='Ime predmeta')
+    .row
+      .large-12.column
+        input(type='text', name='ECTS', placeholder='ECTS')
+    .row
+      .large-12.column
+        select(name='holder')
+          each user in professors
+            option(value=user._id)=user.name + ' ' + user.lastname
+    .row
+      .large-3.column.large-centered
+        input.button(type='submit', value='Dodaj')
+                          

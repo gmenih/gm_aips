@@ -4,9 +4,10 @@ block title
   title='Dodajanje uporabnik'
 
 block content
+  include mainMenu
   .addUserFrame
-    .frameRow
-      span.frameTitle='Dodajanje uporabnika'
+    .row
+      span.large-12.column='Dodajanje uporabnika'
     form(action='/referat/addUser', method='post')
       .row
         .large-8.large-centered.column
@@ -25,7 +26,17 @@ block content
           input(type='password', name='password', placeholder='Geslo',required='true')
       .row
         .large-8.large-centered.column
-          input(type='text', name='type', placeholder='Tip uporabnika', require='true')
+          input(type='text', name='type', placeholder='Tip uporabnika', require='true' id='userType')
+      .row
+        .large-8.large-centered.column
+          select(name='program',placeholder='Izberi letnik študenta')
+            each program in programs
+              option(value=program._id)=program.name
       .row
         .small-3.small-centered.column
           input.button(type='submit', value='Dodaj')
+            
+      script.
+        $("#userType").on('change', function(){
+          if(this.val() == 'student')
+        })

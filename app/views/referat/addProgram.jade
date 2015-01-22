@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  include mainMenu
+  .row
+    .large-12.column
+      h1='Dodajanje letnika'
+  if error != ''
+    .row
+      .large-6.column.large-centered
+        .alert-box.error=error
+  form(action='/referat/addProgram', method='post')
+    .row
+      .large-12.column
+        input(type='text',name='name',placeholder='Ime letnika')
+    .row
+      .large-12.column
+        input(type='text', name='shortname', placeholder='Kratko ime')
+    .row
+      .large-12.column
+        select(name='courses[]' multiple='true', style='height:100px;')
+          each course in courses
+            option(value=course._id)=course.name
+          
+    .row
+      .large-3.large-centered.column
+        input.button(type='submit',value='Dodaj')

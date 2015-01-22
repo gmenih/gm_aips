@@ -1,0 +1,35 @@
+extends ../layout
+
+block title
+  title='Seznam vpisanih študentov'
+
+block content
+  .row
+    .large-12
+      include mainMenu
+  .row
+    .large-12
+      h1='Seznam študentov za predmet'
+  form(method='post', action='/prof/saveGrades')
+    .row
+      .large-12
+        
+          table(width='100%')
+            tr
+              th='Ime'
+              th='Priimek'
+              th='Email'
+              th='Ocena'
+            each grade in grades
+              tr
+                td=grade.userId.name
+                td=grade.userId.lastname
+                td=grade.userId.email
+                td
+                  input(type='number', max='10', min='0', value=grade.grade ,name='grade[]')
+                  input(type='hidden', value=grade.userId._id, name='userId[]')
+                  input(type='hidden', value=grade.course._id, name='course[]')
+    .row
+      .large-3
+        input.button(type='submit', value='Shrani ocene')
+                

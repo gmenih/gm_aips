@@ -31,7 +31,8 @@ var UserSchema = new Schema({
   hashed_password: {
     type: String,
     default: ''
-  }
+  },
+  program: {type: Schema.Types.ObjectId, ref:'Program'}
 });
 
 UserSchema
@@ -87,12 +88,12 @@ UserSchema.statics = {
       .select(options.select)
       .exec(cb);
   },
-  loadAll: function(select, cb){
-    select = select || "_id username"
-    this.find({})
-    .select(select)
+  loadAll: function(options, cb){
+    options.select = options.select || 'name username';
+    this.find(options.where)
+    .select(options.select)
     .exec(cb);
-  }
+  },
 }
 
 mongoose.model('User', UserSchema);
